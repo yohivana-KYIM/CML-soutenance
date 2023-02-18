@@ -105,7 +105,7 @@
 
                                 <td
                                     class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                    <p class="mb-0 font-semibold leading-tight text-size-xs">{{$value->created_at->format ('m/d/Y')}}</p>
+                                    <p class="mb-0 font-semibold leading-tight text-size-xs">{{$value->created_at->format ('d/m/y')}}</p>
                                 </td>
                                 @if(Auth::user()->role->nom=="admin")
                                 <td  class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
@@ -224,7 +224,7 @@
 
                     <td
                         class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                        <p class="mb-0 font-semibold leading-tight text-size-xs">{{$value ->created_at->format ('m-d-y')}}</p>
+                        <p class="mb-0 font-semibold leading-tight text-size-xs">{{$value ->created_at->format ('d/m/y')}}</p>
                     </td>
 
 
