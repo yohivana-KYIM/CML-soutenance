@@ -1,4 +1,4 @@
-<footer class="pt-0">
+<footer class="py-2 mt-4">
     <div class="w-full px-6 mx-auto">
         <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
             <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0">

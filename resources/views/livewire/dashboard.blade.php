@@ -1,16 +1,15 @@
-<script defer>
-    window.onload = function() {window.frameElement.height = document.body.scrollHeight + 'px'};
-    document.onload = function() {window.frameElement.height = document.body.scrollHeight + 'px'};
-</script>
-
-<div class="min-h-screen place-content-center px-4">
-    <h3 class="mb-8">
+<div class="px-4">
+    <h3 class="uppercase text-3xl font-bold mb-8">
         BIENVENUE DANS LE SYSTEME DU CML(Centre Medical La Life)
     </h3>
 
-    <div wire:loading.delay.longest class="flex items-center gap-2 text-gray-500">
-        <span class="h-6 w-6 block rounded-full border-4 border-t-blue-300 animate-spin"></span>
-        loading...
+    <div wire:init="changeLoading">
+        @if ($loading)
+        <div class="flex items-center gap-2 text-gray-500 mb-2">
+            <span class="h-6 w-6 block rounded-full border-4 border-t-blue-300 animate-spin"></span>
+            loading...
+        </div>
+        @endif
     </div>
 
     <div>
@@ -62,9 +61,11 @@
                                 </div>
                             </div>
                             <div class="px-3 text-right basis-1/3">
-                                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-fuchsia">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    <i class="fad fa-alarm-clock text-size-lg relative top-3.5 text-white"></i>
+                                <div class="w-12 h-12 rounded-lg bg-gradient-fuchsia flex justify-center items-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+{{--                                    <i class="fa fa-clock text-size-lg text-white"></i>--}}
                                 </div>
                             </div>
                         </div>
@@ -74,7 +75,7 @@
         </div>
 
         <!-- cards row 2 -->
-        <div class="flex flex-wrap mt-6 -mx-3">
+        <div class="flex flex-wrap mt-4 -mx-3">
             <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none">
                 <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                     <div class="flex-auto p-4">
@@ -94,11 +95,11 @@
                             </div>
                             <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
                                 <div class="h-full bg-gradient-fuchsia rounded-xl">
-                                    <img src="../assets/img/shapes/waves-white.svg"
-                                         class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />
+{{--                                    <img src="{{ asset('assets/img/shapes/waves-white.svg') }}"--}}
+{{--                                         class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />--}}
                                     <div class="relative flex items-center justify-center h-full">
-                                        <img class="relative z-20 w-full pt-6"
-                                             src="../assets/img/illustrations/rocket-white.png" alt="rocket" />
+                                        <img class="relative z-20 pt-6"
+                                             src="{{ asset('assets/img/illustrations/rocket-white.png') }}" alt="rocket" />
                                     </div>
                                 </div>
                             </div>
