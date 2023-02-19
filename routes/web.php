@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 
-
-
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\EquipeManagement;
 use App\Http\Livewire\LegendeManagement;
@@ -59,32 +57,26 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
+    return redirect('/dashboard');
 });
 
 //pointages
 //Route::get('/pointages', Pointages::class)->name('pointages');
 
 //Route::controller(SemaineController::class)->group(function () {
+//Route::get('/', 'index');
+//Route::get('/semaine/create', 'create');
+//Route::get('/semaine/{id}', 'show');
+//Route::get('/semaine/{id}/edit', 'edit');
 
-
-
-    //Route::get('/', 'index');
-   // Route::get('/semaine/create', 'create');
-   // Route::get('/semaine/{id}', 'show');
-    //Route::get('/semaine/{id}/edit', 'edit');
-
-
-    //Route::post('/semaine', 'store');
-   // Route::patch('/semaine/{id}', 'update');
-   // Route::delete('/semaine/{id}', 'destroy');
-
+//Route::post('/semaine', 'store');
+// Route::patch('/semaine/{id}', 'update');
+// Route::delete('/semaine/{id}', 'destroy');
 //});
 
-
 Route::middleware('guest')->group(function () {
-   Route::get('/register', Register::class)->name('register');
-   Route::get('/login', Login::class)->name('login');
+    Route::get('/register', Register::class)->name('register');
+    Route::get('/login', Login::class)->name('login');
 
     Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
     Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
@@ -93,36 +85,36 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     // La route-ressource => Les routes "register.*"
-Route::get('/inscription',Inscription ::class)->name('inscription');
+    Route::get('/inscription',Inscription ::class)->name('inscription');
 // La route-ressource => Les routes "registerLegende.*"
-Route::get('/inscriptionlegende',Inscriptionlegende ::class)->name('inscriptionlegende');
-Route::get('/inscriptionrolre',Inscriptionrole ::class)->name('inscriptionrole');
+    Route::get('/inscriptionlegende',Inscriptionlegende ::class)->name('inscriptionlegende');
+    Route::get('/inscriptionrolre',Inscriptionrole ::class)->name('inscriptionrole');
 // La route-ressource => Les routes "registerEmploi.*"
-Route::get('/inscriptionemploi', Inscriptionemploi ::class)->name('inscriptionemploi');
+    Route::get('/inscriptionemploi', Inscriptionemploi ::class)->name('inscriptionemploi');
 // La route-ressource => Les routes "registerEquuipe.*"
-Route::get('/formulaire-role',FormulaireRole ::class)->name('formulaire-role');
-Route::get('/inscriptionequipe',Inscriptionequipe ::class)->name('inscriptionequipe');
+    Route::get('/formulaire-role',FormulaireRole ::class)->name('formulaire-role');
+    Route::get('/inscriptionequipe',Inscriptionequipe ::class)->name('inscriptionequipe');
 //Route::get('/pointages',PaginateUser::class)->name('pointages');
-Route::get('semaine', [SemaineController::class,'qwery'])->name('semaine.search');
-Route::get('emploi', [EmploiController::class,'qwery'])->name('emploi.search');
+    Route::get('semaine', [SemaineController::class,'qwery'])->name('semaine.search');
+    Route::get('emploi', [EmploiController::class,'qwery'])->name('emploi.search');
 // La route-ressource => Les routes "Legende.*"
 
-Route::get('send-mail', [MailController::class,   'index']);
+    Route::get('send-mail', [MailController::class,   'index']);
 //Route::resource('legendes', LegendeController ::class);
 // La route-ressource => Les routes "Equipes.*"
 //Route::resource('equipes', EquipeController::class);
 // La route-ressource => Les routes "semaine.*"
-Route::resource('semaines', SemaineController::class);
+    Route::resource('semaines', SemaineController::class);
 // La route-ressource => Les routes "emploi.*"
-Route::resource('emplois', EmploiController::class);
-Route::get('bilan', [PointageBilanController::class,'render']);
-Route::get('legende-management/{id}/edit',Editlegende::class)->name('editlegende');
-Route::get('user-management/{id}/edit',EditUser::class)->name('edit-user');
-Route::get('role-management/{id}/edit',Editrole ::class)->name('editrole');
+    Route::resource('emplois', EmploiController::class);
+    Route::get('bilan', [PointageBilanController::class,'render']);
+    Route::get('legende-management/{id}/edit',Editlegende::class)->name('editlegende');
+    Route::get('user-management/{id}/edit',EditUser::class)->name('edit-user');
+    Route::get('role-management/{id}/edit',Editrole ::class)->name('editrole');
 
-Route::get('emploi-management/{id}/edit',Editemploi::class)->name('editemploi');
-Route::get('equipe-management/{id}/edit',Editequipe::class)->name('editequipe');
-Route::get('/pointages',Pointages::class)->name('pointages');
+    Route::get('emploi-management/{id}/edit',Editemploi::class)->name('editemploi');
+    Route::get('equipe-management/{id}/edit',Editequipe::class)->name('editequipe');
+    Route::get('/pointages',Pointages::class)->name('pointages');
 //Route::get('/legendes',Legendes::class)->name('legendes');
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
@@ -132,7 +124,7 @@ Route::get('/pointages',Pointages::class)->name('pointages');
     Route::get('/rtl', Rtl::class)->name('rtl');
     Route::get('/virtual-reality', VirtualReality::class)->name('virtual-reality');
     Route::get('/user-profile', UserProfile::class)->name('user-profile');
-   Route::get('/user-management', UserManagement::class)->name('user-management');
+    Route::get('/user-management', UserManagement::class)->name('user-management');
     Route::get('/legende-management', LegendeManagement::class)->name('legende-management');
     Route::get('/equipe-management', EquipeManagement::class)->name('equipe-management');
     Route::get('/emploi-management', EmploiManagement::class)->name('emploi-management');
