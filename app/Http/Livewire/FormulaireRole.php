@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 use App\Models\User;
 
-use App\Models\role ;
+use App\Models\Role ;
 use Livewire\Component;
 
 class FormulaireRole extends Component
@@ -11,7 +11,7 @@ class FormulaireRole extends Component
 
 
 
-  
+
     public $user_id;
     public $roles ;
     public $users;
@@ -31,8 +31,8 @@ class FormulaireRole extends Component
 public function render()
 {
 
-    
-$this->roles=role::all();
+
+$this->roles=Role::all();
 $this->users=User::all();
     return view('livewire.formulaire-role');
 }
@@ -42,7 +42,7 @@ $this->users=User::all();
       //  'nom' => 'required',
    //'user_id'=> 'required',
    // ]);
-   // $role = role::create([
+   // $role = Role::create([
    //     'nom' => $this->categorie,
 //'user_id' => $this->user_id,
 
@@ -73,16 +73,16 @@ public function store()
 {
     $this->validate([
         'nom' =>  'required',
-       
+
     ]);
-    $role= role::create([
+    $role= Role::create([
         'nom' => $this->nom,
-       
+
   ]);
 
    //auth()->login($user);
 
-    
+
    return redirect('/role-management');
 }
 

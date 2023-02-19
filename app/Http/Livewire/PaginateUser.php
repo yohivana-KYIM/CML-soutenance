@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 use App\Models\User;
 use App\Models\pointage;
-use App\Models\role;
+use App\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
 class PaginateUser extends Component
@@ -14,7 +14,7 @@ class PaginateUser extends Component
     public $search = '';
     public $roles;
     public  $nom ;
- 
+
     public  $users ;
     public $state = [];
    // public $pointages;
@@ -24,10 +24,10 @@ class PaginateUser extends Component
 
        $this->users=User::all();
      //  $this->pointages=pointage::all();
-        $this->roles=role::all();
-        
-       
-        return view('livewire.pointages'); 
+        $this->roles=Role::all();
+
+
+        return view('livewire.pointages');
   //  return redirect(route('user-management'));
        // return view('livewire.paginate-user');
     }

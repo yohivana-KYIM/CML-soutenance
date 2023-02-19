@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\LaravelExamples;
 use App\Models\User;
 use App\Models\pointage;
-use App\Models\role;
+use App\Models\Role;
 use Livewire\Component;
 //use Illuminate\Support\Facades\Hash;ll
 use Illuminate\Support\Facades\Validator;
@@ -28,10 +28,10 @@ public $userr;
     {
         $this->users=User::all();
         $this->pointages=pointage::all();
-        $this->roles=role::all();
-        
-       
-        return view('livewire.laravel-examples.user-management'); 
+        $this->roles=Role::all();
+
+
+        return view('livewire.laravel-examples.user-management');
   //  return redirect(route('user-management'));
     }
 
@@ -69,8 +69,8 @@ public $userr;
 //$this->validate();
 
 
-    
-    
+
+
     //User::create([
 
       //  'name' => $this->name,
@@ -80,7 +80,7 @@ public $userr;
        // 'password' => Hash::make($this->password),
         //'picture' => $this->picture->store('profile', 'public'),
        // 'role_id' => $this->role_id,
-       
+
  //   ]);
 
  //   return redirect(route('user-management'))->with('status', 'User successfully created.');
@@ -88,18 +88,18 @@ public $userr;
 
 
 
-     
-   
-   
-   
+
+
+
+
            public function store()
        {
           $this->validate();
-   
+
           User::create([
-            
-          
-   
+
+
+
              'name' => $this->name,
              'email' => $this->email,
              'fonction' => $this->fonction,
@@ -107,12 +107,12 @@ public $userr;
             // 'password' => Hash::make($this->password),
              //'picture' => $this->picture->store('profile', 'public'),
              'role_id' =>$this->role_id,
-   
-   
-   
+
+
+
           ]);
           return redirect(route('user-management'))->with('status', 'user successfully created.');
-        
+
 
 }
 

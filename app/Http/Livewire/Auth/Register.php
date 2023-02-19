@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
 use App\Models\User;
-use App\Models\role;
+use App\Models\Role;
 use App\Models\pointage;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,9 +15,9 @@ class Register extends Component
     public $role_id;
     public $nom= '';
     public  $users;
-  
+
     public  $pointages;
-  
+
     public $name = '';
     public $email = '';
     public $fonction = '';
@@ -29,7 +29,7 @@ class Register extends Component
         'email' => 'required|email',
         'role_id' => 'required',
         'password' => 'required|min:6'
-        
+
     ];
 
     public function register()
@@ -41,7 +41,7 @@ class Register extends Component
             'email' => $this->email,
             'role_id' =>$this->role_id,
             'password' => $this->password
-           
+
 
          //   'password' => Hash::make($this->password)
         ]);
@@ -55,33 +55,33 @@ class Register extends Component
 
     public function store()
     {
- 
+
        $this->validate();
- 
+
        User::create([
-         
-       
- 
+
+
+
           'name' => $this->name,
           'email' => $this->email,
           'fonction' => $this->fonction,
           'password' => $this->password,
          // 'password' => Hash::make($this->password),
          // 'picture' => $this->picture->store('profile', 'public'),
-         
+
           'role_id' =>$this->role_id,
- 
- 
+
+
        ]);
- 
+
         return redirect('/user-management');
- 
+
  }
     public function render()
     {
         $this->users=User::all();
         $this->pointages=pointage::all();
-        $this->roles=role::all();
+        $this->roles=Role::all();
         return view('livewire.auth.register');
     }
 }

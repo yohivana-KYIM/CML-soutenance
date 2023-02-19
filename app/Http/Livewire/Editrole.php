@@ -3,15 +3,15 @@
 namespace App\Http\Livewire;
 use App\Models\User;
 
-use App\Models\role ;
+use App\Models\Role ;
 use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 class Editrole extends Component
 {
-   
 
 
-    
+
+
     public  $roles ;
     public $state = [];
 
@@ -26,12 +26,12 @@ class Editrole extends Component
     {
         $this->updateMode = true;
 
-        $roles = role::find($id);
+        $roles = Role::find($id);
 
         $this->state = [
             'id' =>$roles ->id,
             'nom' =>$roles ->nom,
-           
+
 
 
 
@@ -43,28 +43,28 @@ class Editrole extends Component
     {
         $validator = Validator::make($this->state, [
             'nom' => 'required',
-          
+
 
         ])->validate();
 
 
         if ($this->state['id']) {
-            $roles = role::find($this->state['id']);
+            $roles = Role::find($this->state['id']);
             $roles->update([
                 'id' => $this->state['id'],
                 'nom' => $this->state['nom'],
-              
+
 
 
             ]);
             $this->updateMode = false;
             $this->reset('state');
 
-            $this->roles=role::all();
+            $this->roles=Role::all();
             redirect()->intended('role-management');
         }
     }
 
 
-    
+
 }

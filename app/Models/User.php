@@ -36,13 +36,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(equipe::class, 'equipe_id');
     }
-  
-   
+
+
     public function role()
     {
-        return $this->belongsTo(role::class, 'role_id');
+        return $this->belongsTo(Role::class, 'role_id');
     }
-   
+
       /**
      * The attributes that should be hidden for serialization.
      *

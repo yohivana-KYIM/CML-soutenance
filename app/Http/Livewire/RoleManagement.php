@@ -5,25 +5,25 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\User;
 
-use App\Models\role ;
+use App\Models\Role ;
 class RoleManagement extends Component
 {
- 
 
-    
+
+
     public  $roles;
     public  $users;
     public $user_id;
     public  $equipes ;
     public $state = [];
-   
+
     public $updateNew=false;
 
     public $updateMode = false;
 
     public function render()
     {
-        $this->roles=role::all();
+        $this->roles=Role::all();
         $this->users=User::all();
         return view('livewire.role-management');
     }
@@ -37,7 +37,7 @@ class RoleManagement extends Component
 
        $this->validate();
 
-       role::create([
+       Role::create([
            'nom' =>$this->nom,
           'role_id' =>$this->role_id,
 
@@ -53,8 +53,8 @@ class RoleManagement extends Component
 public function delete($id)
 {
     if($id){
-        role::where('id',$id)->delete();
-        $this->roles = role::all();
+        Role::where('id',$id)->delete();
+        $this->roles = Role::all();
     }
 }
 

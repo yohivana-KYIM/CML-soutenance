@@ -3,12 +3,12 @@
 namespace App\Http\Livewire;
 use App\Models\User;
 
-use App\Models\role ;
+use App\Models\Role ;
 use Livewire\Component;
 
 class Inscriptionrole extends Component
 {
-  
+
 
 
 
@@ -26,9 +26,9 @@ class Inscriptionrole extends Component
 public function render()
 
 {
-    $this->roles=role::all();
+    $this->roles=Role::all();
          $this->users=User::all();
-         
+
          return view('livewire.inscriptionrole');
 }
 
@@ -38,7 +38,7 @@ public function store()
         'nom' => 'required',
    'user_id'=> 'required',
     ]);
-    $role = role::create([
+    $role = Role::create([
         'nom' => $this->nom,
 'user_id' => $this->user_id,
 

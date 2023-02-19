@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Route;
-use App\Models\role ;
+use App\Models\Role ;
 
 class Inscription extends Component
 {
@@ -22,7 +22,7 @@ class Inscription extends Component
 
     public $updateMode = false;
     public  $pointages ;
-   
+
     public $roles;
     public $role_id;
     public $nom= '';
@@ -70,8 +70,8 @@ class Inscription extends Component
       $this->validate();
 
       User::create([
-        
-      
+
+
 
          'name' => $this->name,
          'email' => $this->email,
@@ -79,7 +79,7 @@ class Inscription extends Component
          'password' => $this->password,
         // 'password' => Hash::make($this->password),
         // 'picture' => $this->picture->store('profile', 'public'),
-        
+
          'role_id' =>$this->role_id,
 
 
@@ -93,7 +93,7 @@ class Inscription extends Component
     {
          $this->users=User::all();
         $this->pointages=pointage::all();
-        $this->roles=role::all();
+        $this->roles=Role::all();
         return view('livewire.inscription');
     }
 
