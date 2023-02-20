@@ -15,30 +15,33 @@ class EquipeManagement extends Component
     public $users;
     public $user_id;
     public $loading = true;
+    private $data = [];
 
     public function init()
     {
-        sleep(3);
         $this->loading = false;
     }
 
     public function render()
     {
+        // Initialisation ici parce que je nai pas cree de function a executer apres l'evenement livewire:load
+        // comme dans la vue du composant emploi management
+        $this->init();
         if ($this->loading) {
-            $data = ['equipes' => []];
+            $this->data = ['equipes' => []];
             $this->users = [];
-            $this->init();
         } else {
-            $data = ['equipes' =>  equipe::all()];
+            $this->data = ['equipes' =>  equipe::query()->paginate(1)];
             $this->users = User::all();
         }
 
-        return view('livewire.equipe-management', $data);
+        return view('livewire.equipe-management', $this->data);
     }
 
     public function store()
     {
-        $this->loading = true;
+        // cette fonction n'est pas appelle
+//        $this->loading = true;
         equipe::create([
             'categorie' => $this->categorie,
             'user_id' => $this->user_id,
@@ -49,10 +52,16 @@ class EquipeManagement extends Component
 
     public function delete($id)
     {
-        $this->loading = true;
-        Log::error('delete ' . $id);
-//        if ($id) {
-//            equipe::where('id',$id)->delete();
-//        }
+//        $this->loading = true;
+        if ($id) {
+            equipe::where('id',$id)->delete();
+
+            // J'ai transforme $this->data en private parce que je veux faire recharger le render
+            // a chaque foi que $this->data va changer
+            // J'aurai pu cree un ecouteur a un event que j'allais emettre ici, et qui allait recharger le render,
+            // mais il faut toujours une variable qui va changer
+            // Et on a besoin du javascript pour faire un setTimeout qui va s'executer apres un nombre de temps
+            $this->data = ['equipes' => equipe::query()->paginate(10)];
+        }
     }
 }

@@ -138,6 +138,7 @@
                             </tbody>
                         </table>
                     </div>
+
                     <div class="mt-3 px-5">
                         {{ $emplois->links() }}
                     </div>
