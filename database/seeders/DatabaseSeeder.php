@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         if (User::query()->count() < 1) {
-            $role_admin = Role::create(['nom' => 'Admin']);
+            $role_admin = Role::create(['nom' => 'admin']);
             User::factory()->create([
 //             'name' => 'Alec Thompson',
                 'email' => 'admin@softui.com',

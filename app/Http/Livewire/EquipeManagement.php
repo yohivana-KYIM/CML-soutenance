@@ -1,71 +1,58 @@
 <?php
 
 namespace App\Http\Livewire;
+
 use App\Models\equipe;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use App\Models\User;
+use Livewire\WithPagination;
 
-
-
-use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Validator;
 class EquipeManagement extends Component
 {
+    use WithPagination;
 
-
-
-    public  $users;
+    public $users;
     public $user_id;
-    public  $equipes ;
-    public $state = [];
-   
-    public $updateNew=false;
+    public $loading = true;
 
-    public $updateMode = false;
+    public function init()
+    {
+        sleep(3);
+        $this->loading = false;
+    }
 
     public function render()
-
     {
-         $this->equipes=equipe::all();
-         $this->users=User::all();
-         return view('livewire.equipe-management');
-
-
+        if ($this->loading) {
+            $data = ['equipes' => []];
+            $this->users = [];
+            $this->init();
+        } else {
+            $data = ['equipes' =>  equipe::all()];
+            $this->users = User::all();
         }
 
+        return view('livewire.equipe-management', $data);
+    }
 
-
-
-
-        public function store()
+    public function store()
     {
-
-       $this->validate();
-
+        $this->loading = true;
         equipe::create([
-           'categorie' =>$this->categorie,
-          'user_id' =>$this->user_id,
+            'categorie' => $this->categorie,
+            'user_id' => $this->user_id,
+        ]);
 
-
-
-
-       ]);
-
-      return redirect(route('equipe-management'))->with('status', 'Equipe successfully created.');
+        return redirect(route('equipe-management'))->with('status', 'Equipe successfully created.');
     }
 
-
-public function delete($id)
-{
-    if($id){
-        equipe::where('id',$id)->delete();
-        $this->equipes = equipe::all();
+    public function delete($id)
+    {
+        $this->loading = true;
+        Log::error('delete ' . $id);
+//        if ($id) {
+//            equipe::where('id',$id)->delete();
+//        }
     }
-}
-
-
-
-
-
 }

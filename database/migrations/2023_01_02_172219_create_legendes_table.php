@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('description')->default('');
             $table->string('libelle');
-
             $table->timestamps();
         });
     }

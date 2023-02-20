@@ -17,13 +17,11 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('nom_emploi')->nullable();
             $table->date('date_debut');
-           $table->date('date_fin');
-            $table->timestamps();
-
+            $table->date('date_fin');
             $table->foreignId('equipe_id')->nullable()->constrained('equipes');
-
             $table->foreignId('user_id')->nullable()->constrained('users');
             $table->foreignId('legende_id')->nullable()->constrained('legendes');
+            $table->timestamps();
         });
     }
 

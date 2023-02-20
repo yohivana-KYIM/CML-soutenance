@@ -12,13 +12,18 @@
     <!-- Nucleo Icons -->
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Main Styling -->
     <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
-
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
-    <script src="https://cdn.tailwindcss.com" defer></script>
-
+    <style>
+        .bg-gradient-dark-gray {
+            background-image: linear-gradient(310deg,#141727,#3a416f) !important;
+        }
+        .bg-gradient-fuchsia {
+            background-image: linear-gradient(310deg,#7928ca,#ff0080) !important;
+        }
+    </style>
     @livewireStyles
 
 </head>
@@ -40,7 +45,10 @@
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 <!-- Popper -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.5/umd/popper.min.js"></script>
-<script defer>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
+@section('javascript')
+@endsection
+<script>
     window.addEventListener('load', () => {
         if (window.frameElement) {
             window.frameElement.height = document.body.scrollHeight + 'px'

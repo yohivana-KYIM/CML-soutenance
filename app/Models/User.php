@@ -13,15 +13,17 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'fonction',
+        'user_id',
+        'role_id'
+    ];
 
-
-   protected $fillable = [
-    'name',
-    'email',
-     'password',
-     'fonction',
-     'user_id',
-     'role_id'
+    protected $with = [
+        'role'
     ];
 
     public function emplois()
@@ -37,13 +39,12 @@ class User extends Authenticatable
         return $this->hasMany(equipe::class, 'equipe_id');
     }
 
-
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id');
     }
 
-      /**
+    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -61,4 +62,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin(): bool
+    {
+        if ($this->role) {
+            return isset($this->role->nom) && $this->role->nom == 'admin';
+        }
+
+        return false;
+    }
 }
