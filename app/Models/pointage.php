@@ -20,7 +20,7 @@ class pointage extends Model
         'signature',
         'heure_A',
         'heure_D',
-
+        'total_hours'
     ];
      /**
      * Get the comments for the blog post.

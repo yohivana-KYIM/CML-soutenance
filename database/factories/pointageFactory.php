@@ -21,6 +21,7 @@ class pointageFactory extends Factory
               'signature'=>1,
             'heure_A' => $this->faker->time($format='H:i:s', $max='now'),
             'heure_D' =>$this->faker->time($format='H:i:s', $max='now'),
+            'total_hours'=>rand(8,15),
 'user_id' =>1,
 'created_at'=>$this->faker->date($format = 'Y-m-d', $max = 'now'),
         ];

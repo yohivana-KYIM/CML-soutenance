@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('signature');
             $table->string('heure_A');
+
             $table->string('heure_D')->nullable();
+            $table->string('total_hours')->nullable();
             $table->timestamps();
             $table->foreignId('user_id')->constrained('users');
 
