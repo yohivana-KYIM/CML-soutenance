@@ -16,16 +16,12 @@ return new class extends Migration
         Schema::create('pointages', function (Blueprint $table) {
             $table->id();
             $table->string('signature');
-            $table->string('heure_A');
-            $table->string('heure_D');
-
-            // $table->string('heure_D')->nullable();
+             $table->string('heure_A');
+            // $table->dateTime('heure_D')->nullable();
+            $table->string('heure_D')->nullable();
             // $table->string('total_hours')->nullable();
             $table->timestamps();
             $table->foreignId('user_id')->constrained('users');
-
-
-
         });
     }
 
@@ -37,6 +33,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('pointages');
-
     }
 };

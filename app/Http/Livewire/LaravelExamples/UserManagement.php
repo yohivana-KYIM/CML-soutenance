@@ -35,6 +35,21 @@ public $userr;
   //  return redirect(route('user-management'));
     }
 
+    public function scopeCurrentMonthPointage()
+    {
+        $total = 0;
+        $pointages = $this->pointage()->whereMonth('created_at', now())->get();
+
+        foreach ($pointages as $key => $pointage) {
+          
+            $total += $pointages->timing;
+              dd( $this->pointage);
+            
+        }
+
+        return $total;
+    }
+
 
 
 //paginate

@@ -27,12 +27,9 @@ class Pointages extends Component
 
     public function mount()
     {
+        // $this->pointages = pointage::all();
         $this->pointages = pointage::where('user_id',Auth::user()->id)->get();
-        //$this->pointages = pointage::where("user_id",);
-
-
     }
-
 
     private function resetInputFields(){
         $this->reset('state');
@@ -52,10 +49,7 @@ class Pointages extends Component
         $this->state['user_id']=Auth::user()->id;
 
         if($this->state['heure_A']){
-            $now=Carbon::now();
-        $now->setTimezone('Africa/Douala');
-        $now=carbon::parse($now)->format('H:i');
-            $this->state['heure_A']=$now;
+            $this->state['heure_A']=Carbon::now();
         }
 
 
@@ -64,10 +58,7 @@ class Pointages extends Component
         }
 
         if (isset($this->state['heure_D'])){
-            $now=Carbon::now();
-        $now->setTimezone('Africa/Douala');
-        $now=carbon::parse($now)->format('H:i');
-            $pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','=',$now)->first();
+            $pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','like','%'.Carbon::now()->toDateString().'%')->first();
 
             $validator = Validator::make($this->state, [
                         'signature' => 'required',
@@ -77,22 +68,17 @@ class Pointages extends Component
                     $this->state['user_id']=Auth::user()->id;
 
                     if($this->state['heure_D']){
-                        $now=Carbon::now();
-        $now->setTimezone('Africa/Douala');
-        $now=carbon::parse($now)->format('H:i');
-
-
-                        $this->state['heure_D']=$now;
-                        $totalHours= $this->state['heure_A']->diffInHours($this->state['heure_D']);
+                        $this->state['heure_D']=Carbon::now();
                     }
 
-                    $pointageDuJour->update(['heure_D'=>$this->state['heure_D'],'total_hours'=>$totalHours]);
+                    $pointageDuJour->update(['heure_D'=>$this->state['heure_D']]);
                 }
 
         $this->reset('state');
         $this->pointages = pointage::all();
     }
-
+   
+    
     public function edit($id)
     {
         $this->updateMode = true;
@@ -160,10 +146,7 @@ class Pointages extends Component
     {
 
 $showHeureDepart=false;
-$now=Carbon::now();
-        $now->setTimezone('Africa/Douala');
-        $now=carbon::parse($now)->format('H:i');
- $pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','=',$now)->get();
+ $pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','like','%'.Carbon::now()->toDateString().'%')->get();
 if (!empty($pointageDuJour) && count($pointageDuJour)==1){
 if(is_null($pointageDuJour[0]->heure_D)){
     $showHeureDepart=true;

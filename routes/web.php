@@ -9,6 +9,7 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\EquipeManagement;
 use App\Http\Livewire\LegendeManagement;
 use App\Http\Livewire\RoleManagement;
+
 use App\Http\Livewire\EmploiManagement;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\EditUser;

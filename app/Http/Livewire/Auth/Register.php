@@ -74,7 +74,7 @@ class Register extends Component
 
        ]);
 
-        return redirect('/user-management');
+ 
 
  }
     public function render()

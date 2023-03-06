@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+// use App\Models\pointage;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -30,10 +30,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(emploi::class,'emploi_id');
     }
-    public function pointages()
-    {
-        return $this->hasMany(pointages::class) ;
-    }
+   
     public function equipes()
     {
         return $this->hasMany(equipe::class, 'equipe_id');
@@ -71,4 +68,24 @@ class User extends Authenticatable
 
         return false;
     }
+    public function pointages()
+    {
+        return $this->hasMany(pointages::class) ;
+    }
+    public function scopeCurrentMonthPointage()
+    {
+        $total = 0;
+        $pointages = $this->pointage()->whereMonth('created_at', now())->get();
+
+        foreach ($pointages as $key => $pointage) {
+          
+            $total += $pointages->timing;
+              dd( $this->$pointages);
+            
+        }
+
+        return $total;
+    }
+
+  
 }
