@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
 class pointage extends Model
 {
-
     use HasFactory;
     /**
      * The attributes that are mass assignable.
@@ -34,11 +32,14 @@ class pointage extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function timing()
+    public function getAttributeTiming()
     {
-        return $this->heure_D->diffInHours($this->heure_A);
-    }
-   
+        $heure_d = $this->heure_D;
+        $heure_a = $this->heure_A;
+        if ($heure_d && $heure_a) {
+            return $heure_d->diffInHours($heure_a);
+        }
 
-  
+        return null;
+    }
 }
