@@ -20,7 +20,11 @@ class pointage extends Model
         'signature',
         'heure_A',
         'heure_D',
-        'total_hours'
+    ];
+
+    protected $casts = [
+        'heure_D' => 'datetime',
+        'heure_A' => 'datetime',
     ];
      /**
      * Get the comments for the blog post.
@@ -30,4 +34,11 @@ class pointage extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function timing()
+    {
+        return $this->heure_D->diffInHours($this->heure_A);
+    }
+   
+
+  
 }

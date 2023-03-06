@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Contracts\Auth\CanResetPassword;
 
+/**
+ * class User
+ * @property Role $role
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -26,20 +30,26 @@ class User extends Authenticatable
         'role'
     ];
 
-    public function emplois()
+    /**
+     * @return HasMany
+     */
+    public function emplois(): HasMany
     {
         return $this->hasMany(emploi::class,'emploi_id');
     }
-    public function pointages()
-    {
-        return $this->hasMany(pointages::class) ;
-    }
-    public function equipes()
+
+    /**
+     * @return HasMany
+     */
+    public function equipes(): HasMany
     {
         return $this->hasMany(equipe::class, 'equipe_id');
     }
 
-    public function role()
+    /**
+     * @return BelongsTo
+     */
+    public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'role_id');
     }
@@ -63,6 +73,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'current_month_pointage',
+    ];
+
     public function isAdmin(): bool
     {
         if ($this->role) {
@@ -70,5 +84,28 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function pointages(): HasMany
+    {
+        return $this->hasMany(pointage::class) ;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCurrentMonthPointageAttribute(): int
+    {
+        $total = 0;
+        $pointages = $this->pointages()->whereMonth('created_at', '=', now())->get();
+
+        foreach ($pointages as $pointage) {
+            $total += $pointage->timing;
+        }
+
+        return $total;
     }
 }

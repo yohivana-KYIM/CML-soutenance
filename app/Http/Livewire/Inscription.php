@@ -76,8 +76,8 @@ class Inscription extends Component
          'name' => $this->name,
          'email' => $this->email,
          'fonction' => $this->fonction,
-         'password' => $this->password,
-        // 'password' => Hash::make($this->password),
+         // 'password' => $this->password,
+        'password' => Hash::make($this->password),
         // 'picture' => $this->picture->store('profile', 'public'),
 
          'role_id' =>$this->role_id,
