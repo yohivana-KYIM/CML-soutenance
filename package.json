@@ -1,4 +1,5 @@
 {
+    "name": "TemplateStyle",
     "private": true,
     "scripts": {
         "dev": "vite",
