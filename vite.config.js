@@ -9,7 +9,6 @@ export default defineConfig({
             'resources/js/app.js',
         ]),
     ],
-<<<<<<< HEAD
     resolve: {
         alias: {
             '@': '/resources/js',
@@ -22,6 +21,4 @@ export default defineConfig({
             // name: "TemplateStyle",
         // },
     // },
-=======
->>>>>>> e9542bc47b90eed1cb8f65be17c0db1cc6f69b8b
 });

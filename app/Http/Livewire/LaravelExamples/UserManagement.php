@@ -1,143 +1,67 @@
 <?php
 
 namespace App\Http\Livewire\LaravelExamples;
-use App\Models\User;
+
 use App\Models\pointage;
 use App\Models\Role;
+use App\Models\User;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
-//use Illuminate\Support\Facades\Hash;ll
-use Illuminate\Support\Facades\Validator;
 use Livewire\WithPagination;
+
 class UserManagement extends Component
 {
-//{{ $users->links() }}
-public $userr;
-    //public $id;
-    public $users ;
-    public  $nom ;
-    public $role_id;
-   public  $roles ;
-    public $state = [];
-    public $name,$fonction,$email,$pointages,$signature,$heure_A,$heure_D;
-    public $updateNew=false;
     use WithPagination;
-    public $search = '';
-    public $searchTerm;
-    public $updateMode = false;
-    public function render()
-    {
-        $this->users=User::all();
-        $this->pointages=pointage::all();
-        $this->roles=Role::all();
 
+    public $users ;
+    public $nom ;
+    public $role_id;
+    public $roles ;
+    public $state = [];
+    public $name, $fonction, $email, $pointages, $signature, $heure_A, $heure_D;
+    public $search = '';
+
+    /**
+     * @return View
+     */
+    public function render(): View
+    {
+        $this->users = User::all();
+        $this->pointages = pointage::all();
+        $this->roles = Role::all();
 
         return view('livewire.laravel-examples.user-management');
-  //  return redirect(route('user-management'));
     }
 
-    public function scopeCurrentMonthPointage()
+    /**
+     * @return RedirectResponse
+     */
+    public function store(): RedirectResponse
     {
-        $total = 0;
-        $pointages = $this->pointage()->whereMonth('created_at', now())->get();
+        $this->validate();
+        User::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'fonction' => $this->fonction,
+            'password' => Hash::make($this->password),
+            //'picture' => $this->picture->store('profile', 'public'),
+            'role_id' =>$this->role_id,
+        ]);
 
-        foreach ($pointages as $key => $pointage) {
-          
-            $total += $pointages->timing;
-              dd( $this->pointage);
-            
-        }
-
-        return $total;
+        return redirect(route('user-management'))->with('status', 'user successfully created.');
     }
 
-
-
-//paginate
-
-    ///public function mount()
-   // {
-     //  dd('search');
-
-      // if($this->search)
-     //  {
-
-
-       // $users = User::where('name',  'like',
-        //'%' .$this->search .'%')->orderBy('id' ,'ASC')
-        //->orWhere('fonction', 'like',
-       // '%' .$this->search .'%')->paginate(2);
-
-
- //  }else{
-           // $users = User::paginate(2);
-     ///  }
-
-
-      //  return view('livewire.laravel-examples.user-management',compact('users'));
-    //}
-
-
-
-   //// public function store()
-//{
-
-//$this->validate();
-
-
-
-
-    //User::create([
-
-      //  'name' => $this->name,
-      //  'email' => $this->email,
-       // 'fonction' => $this->fonction,
-       // 'password' => $this->password,
-       // 'password' => Hash::make($this->password),
-        //'picture' => $this->picture->store('profile', 'public'),
-       // 'role_id' => $this->role_id,
-
- //   ]);
-
- //   return redirect(route('user-management'))->with('status', 'User successfully created.');
-//}
-
-
-
-
-
-
-
-           public function store()
-       {
-          $this->validate();
-
-          User::create([
-
-
-
-             'name' => $this->name,
-             'email' => $this->email,
-             'fonction' => $this->fonction,
-             'password' => $this->password,
-            // 'password' => Hash::make($this->password),
-             //'picture' => $this->picture->store('profile', 'public'),
-             'role_id' =>$this->role_id,
-
-
-
-          ]);
-          return redirect(route('user-management'))->with('status', 'user successfully created.');
-
-
-}
-
-
-public function delete($id)
-   {
-        if($id){
-         User::where('id',$id)->delete();
-          $this->users = User::all();
-       }
-
+    /**
+     * @param $id
+     * @return void
+     */
+    public function delete($id): void
+    {
+        if ($id) {
+            User::where('id', $id)->delete();
+            $this->users = User::all();
+        }
     }
 }

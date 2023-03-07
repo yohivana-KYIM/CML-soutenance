@@ -24,15 +24,20 @@ class pointage extends Model
         'heure_D' => 'datetime',
         'heure_A' => 'datetime',
     ];
+
+    protected $appends = [
+        'timing',
+    ];
+
      /**
      * Get the comments for the blog post.
      */
-
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function getAttributeTiming()
+
+    public function getTimingAttribute()
     {
         $heure_d = $this->heure_D;
         $heure_a = $this->heure_A;
