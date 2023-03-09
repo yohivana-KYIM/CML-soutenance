@@ -30,7 +30,7 @@
                         </div>
       <h2>votre email:{{auth()->user()->email}}</h2>  
                                 <div>Mail valide avec succès</div>
-                                      <h4><a href=" http://127.0.0.1:8000/login" style="color:blue">lien de connexion</a></h4>
+                                      <h4><a href=" URL('login')" style="color:blue">lien de connexion</a></h4>
        
       <p>Thank you</p>
   </body>

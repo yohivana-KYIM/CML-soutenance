@@ -1,5 +1,0 @@
-Pour la creation d'un emploi
-
-S'il faut choisir un libelle, il va falloir inclure la librairie select2, afin que si le libelle de la legende n'existe pas, il puisse etre cree
-
-Afficher les erreurs exceptions des livewires

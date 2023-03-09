@@ -20,6 +20,7 @@ class EmploiManagement extends Component
     public $equipe_id;
     public $user_id;
     public $equipes ;
+    
     public $search = null;
     public $loading = true;
 

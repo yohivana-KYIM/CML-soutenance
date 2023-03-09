@@ -14,6 +14,7 @@ class EquipeManagement extends Component
 
     public $users;
     public $user_id;
+    public $search = null;
     public $loading = true;
     private $data = [];
 
@@ -30,10 +31,19 @@ class EquipeManagement extends Component
         if ($this->loading) {
             $this->data = ['equipes' => []];
             $this->users = [];
-        } else {
-            $this->data = ['equipes' =>  equipe::query()->paginate(1)];
-            $this->users = User::all();
         }
+
+            else {
+    // $query = equipe::query();
+    // if ($this->search) {
+    //     $query = $query->where('categorie', 'like', '%' . $this->search . '%')
+    //         ->orWhere('categorie', 'like', '%' . $this->search . '%')
+    //         ->orderBy('id', 'ASC');
+    // }
+
+    $this->data = ['equipes' =>  equipe::query()->paginate(1)];
+    $this->users = User::all();
+}
 
         return view('livewire.equipe-management', $this->data);
     }
