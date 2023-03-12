@@ -12,8 +12,7 @@ class PointageSeeder extends Seeder
      *
      * @return void
      */
-
-    public function run()
+    public function run(): void
     {
         pointage::factory(20)->create();
     }

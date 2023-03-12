@@ -30,7 +30,7 @@ class EditUser extends Component
 
         $users = User::find($id);
 
-        $this->state = [
+        $this->state =[
             'id' => $users->id,
             'name' => $users->name,
             'fonction' => $users->fonction,

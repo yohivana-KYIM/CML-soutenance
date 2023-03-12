@@ -78,9 +78,9 @@
                                         <a href="{{ route('forgot-password') }}"
                                             class="relative z-10 font-semibold text-transparent bg-gradient-cyan bg-clip-text">here</a>.<br />
                                         Don't have an account?
-                                        <a href="{{ route('register') }}"
+                                        {{-- <a href="{{ route('register') }}"
                                             class="relative z-10 font-semibold text-transparent bg-gradient-cyan bg-clip-text">Sign
-                                            up</a>.
+                                            up</a>. --}}
                                     </p>
                                 </div>
                             </div>

@@ -69,7 +69,7 @@
                                     ease-in-out
                                     m-0
                                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label=".form-select-sm example">
-                                        <option selected>Selectionner un name</option>
+                                        <option selected>Selectionner un role</option>
                                         @foreach ($roles as  $role){
                                             <option value="{{$role->id }}">{{$role->nom }}</option>
 

@@ -19,11 +19,11 @@ class Editemploi extends Component
     
     public $state = [];
     public  $emplois;
-   
+    public  $emploi;
     public $legendes;
     public $legende_id;
     public $equipe_id;
-
+    public $legende;
     public function render()
     {
         

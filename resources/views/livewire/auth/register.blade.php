@@ -121,17 +121,6 @@
                                     @enderror
                                 </div>
 
-
-                                <div class="mb-4">
-                                    <input wire:model.lazy="password" type="password"
-                                        class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
-                                        placeholder="Password" name="password" aria-label="Password"
-                                        aria-describedby="password-addon" required />
-                                    @error('password')
-                                    <p class="text-size-sm text-red-500">{{ $message }}</p>
-                                    @enderror
-                                </div>
-
            <div >
                                     <label class="block text-sm font-bold text-gray-700" for="">ROLE</label>
 
@@ -161,6 +150,16 @@
 
                                     </select>
 
+   </div>
+                                <div class="mb-4">
+                                    <input wire:model.lazy="password" type="password"
+                                        class="text-size-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
+                                        placeholder="Password" name="password" aria-label="Password"
+                                        aria-describedby="password-addon" required />
+                                    @error('password')
+                                    <p class="text-size-sm text-red-500">{{ $message }}</p>
+                                    @enderror
+                                </div>
 
 
                                 <div class="min-h-6 pl-6.92-em mb-0.5 block">

@@ -27,13 +27,10 @@ class Pointages extends Component
 
     public function mount()
     {
+        // $this->pointages = pointage::all();
         $this->pointages = pointage::where('user_id',Auth::user()->id)->get();
-        //$this->pointages = pointage::where("user_id",);
-        
-       
     }
 
-   
     private function resetInputFields(){
         $this->reset('state');
     }
@@ -52,10 +49,11 @@ class Pointages extends Component
         $this->state['user_id']=Auth::user()->id;
 
         if($this->state['heure_A']){
-            $now=Carbon::now();
-        $now->setTimezone('Africa/Douala');
-        $now=carbon::parse($now)->format('H:i');
-            $this->state['heure_A']=$now;
+            $this->state['heure_A']=Carbon::now();
+            // $now = Carbon::now();
+            // $now->setTimeZone('Africa/Douala');
+            // $now=Carbon::now()->format('H:i');
+            // $this->state['heure_A']=$now;
         }
 
 
@@ -64,10 +62,11 @@ class Pointages extends Component
         }
 
         if (isset($this->state['heure_D'])){
-            $now=Carbon::now();
-        $now->setTimezone('Africa/Douala');
-        $now=carbon::parse($now)->format('H:i');
-            $pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','=',$now)->first();
+            // $now = Carbon::now();
+            // $now->setTimeZone('Africa/Douala');
+            // $now=Carbon::parse($now)->format('H:i');
+             // $pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','=',$now)->first();
+           $pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','like','%'.Carbon::now()->toDateString().'%')->first();
 
             $validator = Validator::make($this->state, [
                         'signature' => 'required',
@@ -77,77 +76,81 @@ class Pointages extends Component
                     $this->state['user_id']=Auth::user()->id;
 
                     if($this->state['heure_D']){
-                        $now=Carbon::now();
-        $now->setTimezone('Africa/Douala');
-        $now=carbon::parse($now)->format('H:i');
-                        $this->state['heure_D']=$now;
+                        // $now = Carbon::now();
+                        // $now->setTimeZone('Africa/Douala');
+                        // $now=Carbon::parse($now)->format('H:i');
+                        // $this->state['heure_D']=$now;
+
+                       $this->state['heure_D']=Carbon::now();
                     }
 
                     $pointageDuJour->update(['heure_D'=>$this->state['heure_D']]);
                 }
 
         $this->reset('state');
-        $this->pointages = pointage::all();
-    }
-
-    public function edit($id)
-    {
-        $this->updateMode = true;
-
-        $pointage = pointage::find($id);
-
-        $this->state = [
-
-            'signature' => $pointage->signature,
-            'heure_A' => $pointage->heure_A,
-            'heure_D' => $pointage->heure_D,
-
-
-        ];
+        $this->pointages = pointage::where('user_id',Auth::user()->id)->get();
+        // $this->pointages = pointage::all();
     }
 
 
-    public function cancel()
-    {
-        $this->updateMode = false;
-        $this->reset('state');
-    }
+    // public function edit($id)
+    // {
+    //     $this->updateMode = true;
 
-    public function update()
-    {
-        $validator = Validator::make($this->state, [
+    //     $pointage = pointage::find($id);
 
-            'signature' => 'required',
-            'heure_A' => 'required',
-            'heure_D' => 'required',
+    //     $this->state = [
 
-        ])->validate();
+    //         'signature' => $pointage->signature,
+    //         'heure_A' => $pointage->heure_A,
+    //         'heure_D' => $pointage->heure_D,
 
 
-        if ($this->state['id']) {
-            $pointage  = pointage::find($this->state['id']);
-            $pointage ->update([
-                'signature' => $this->state['signature'],
-                'heure_A' => $this->state['heure_A'],
-                'heure_D' => $this->state['heure_D'],
-            ]);
+    //     ];
+    // }
 
 
-            $this->updateMode = false;
-            $this->reset('state');
-            $this->pointages = pointage::all();
-        }
-    }
+    // public function cancel()
+    // {
+    //     $this->updateMode = false;
+    //     $this->reset('state');
+    // }
 
-    public function delete($id)
-    {
-        if($id){
-            pointage::where('id',$id)->delete();
-            $this->pointages = pointage::all();
-        }
+    // public function update()
+    // {
+    //     $validator = Validator::make($this->state, [
+
+    //         'signature' => 'required',
+    //         'heure_A' => 'required',
+    //         'heure_D' => 'required',
+
+    //     ])->validate();
 
 
-    }
+    //     if ($this->state['id']) {
+    //         $pointage  = pointage::find($this->state['id']);
+    //         $pointage ->update([
+    //             'signature' => $this->state['signature'],
+    //             'heure_A' => $this->state['heure_A'],
+    //             'heure_D' => $this->state['heure_D'],
+    //         ]);
+
+
+    //         $this->updateMode = false;
+    //         $this->reset('state');
+    //         $this->pointages = pointage::all();
+    //     }
+    // }
+
+    // public function delete($id)
+    // {
+    //     if($id){
+    //         pointage::where('id',$id)->delete();
+    //         $this->pointages = pointage::all();
+    //     }
+
+
+    // }
 
 
 
@@ -157,10 +160,11 @@ class Pointages extends Component
     {
 
 $showHeureDepart=false;
-$now=Carbon::now();
-        $now->setTimezone('Africa/Douala');
-        $now=carbon::parse($now)->format('H:i');
- $pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','=',$now)->get();
+// $now = Carbon::now();
+// $now->setTimeZone('Africa/Douala');
+// $now=Carbon::parse($now)->format('H:i');
+ //$pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','=',$now)->get();
+$pointageDuJour= pointage::where('user_id',Auth::user()->id)->where('heure_A','like','%'.Carbon::now()->toDateString().'%')->get();
 if (!empty($pointageDuJour) && count($pointageDuJour)==1){
 if(is_null($pointageDuJour[0]->heure_D)){
     $showHeureDepart=true;

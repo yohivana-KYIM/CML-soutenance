@@ -27,7 +27,7 @@ class MailController extends Controller
         $mailData = [
            
             'email' =>$this->email,
-          'name' =>$this->name,
+          'name'=>$this->name,
            'password' =>$this->password,
           
           
@@ -42,7 +42,7 @@ class MailController extends Controller
    //     'name' =>$this->name,
      //'password' =>$request->password,
 //]) ;
-        Mail::to('your_email@gmail.com')->send(new DemoMail($mailData));
+        Mail::to('ivanayoh98@gmail.com')->send(new DemoMail($mailData));
            
         dd("Email is sent successfully.");
     }

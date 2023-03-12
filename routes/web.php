@@ -9,6 +9,7 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\EquipeManagement;
 use App\Http\Livewire\LegendeManagement;
 use App\Http\Livewire\RoleManagement;
+
 use App\Http\Livewire\EmploiManagement;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\EditUser;
@@ -81,7 +82,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
     Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 });
-
+Route::get('bilan', [PointageBilanController::class,'render']);
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     // La route-ressource => Les routes "register.*"
@@ -107,7 +108,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('semaines', SemaineController::class);
 // La route-ressource => Les routes "emploi.*"
     Route::resource('emplois', EmploiController::class);
-    Route::get('bilan', [PointageBilanController::class,'render']);
+
     Route::get('legende-management/{id}/edit',Editlegende::class)->name('editlegende');
     Route::get('user-management/{id}/edit',EditUser::class)->name('edit-user');
     Route::get('role-management/{id}/edit',Editrole ::class)->name('editrole');
