@@ -29,11 +29,19 @@ class DatabaseSeeder extends Seeder
              ]);
              User::factory()->create([
                  'name' => 'ivana',
+<<<<<<< HEAD
                  'email' => 'ivanayoh98@gmail.com',
                  'fonction' => 'developpeuse',
                  'role_id'=> $role_admin->id,
                  'password' => Hash::make('secret'),
                  'about' => "Hi, I’m Marina, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).",
+=======
+                 'email' => 'yohivana794@gmail.com',
+                 'fonction' => 'developpeuse',
+                 'role_id'=> $role_admin->id,
+                 'password' => Hash::make('secret'),
+                 'about' => "Hi, I’m ivana, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).",
+>>>>>>> origin/main
              ]);
 
              $this->call(PointageSeeder::class);

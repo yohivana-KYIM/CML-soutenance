@@ -9,12 +9,16 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+<<<<<<< HEAD
 // use Livewire\WithPagination;
+=======
+>>>>>>> origin/main
 use Livewire\WithPagination;
 
 class UserManagement extends Component
 {
     use WithPagination;
+<<<<<<< HEAD
 
     // public $users ;
     public $nom ;
@@ -43,6 +47,27 @@ class UserManagement extends Component
         '%' .$this->search .'%')->paginate(5);
         return view('livewire.laravel-examples.user-management',compact('users','pointages'));
         // return view('livewire.laravel-examples.user-management');
+=======
+
+    public $users ;
+    public $nom ;
+    public $role_id;
+    public $roles ;
+    public $state = [];
+    public $name, $fonction, $email, $pointages, $signature, $heure_A, $heure_D;
+    public $search = '';
+
+    /**
+     * @return View
+     */
+    public function render(): View
+    {
+        $this->users = User::all();
+        $this->pointages = pointage::all();
+        $this->roles = Role::all();
+
+        return view('livewire.laravel-examples.user-management');
+>>>>>>> origin/main
     }
 
     /**
@@ -71,7 +96,11 @@ class UserManagement extends Component
     {
         if ($id) {
             User::where('id', $id)->delete();
+<<<<<<< HEAD
             // $this->users = User::all();
+=======
+            $this->users = User::all();
+>>>>>>> origin/main
         }
     }
 }

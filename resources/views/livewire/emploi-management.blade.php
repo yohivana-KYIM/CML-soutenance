@@ -101,13 +101,18 @@
                                         </p>
                                     </td>
 
+<<<<<<< HEAD
                                     {{-- <td
+=======
+                                    <td
+>>>>>>> origin/main
                                         class="pl-6 bg-transparent border-b whitespace-nowrap shadow-transparent">
                                         <p class="mb-0 font-semibold leading-tight text-size-xs">{{optional($emploi->legende)->description}}</p>
                                     </td>
                                     <td
                                         class="pl-6 bg-transparent border-b whitespace-nowrap shadow-transparent">
                                         <p class="mb-0 font-semibold leading-tight text-size-xs">{{optional($emploi->legende)->libelle}}</p>
+<<<<<<< HEAD
                                     </td> --}}
                                     <td
                                     class="pl-6 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
@@ -118,6 +123,9 @@
                                 <p class="mb-0 font-semibold leading-tight text-size-xs">{{$emploi->legende->libelle}}</p>
                             </td>
 
+=======
+                                    </td>
+>>>>>>> origin/main
                                     <td
                                         class="pl-6 bg-transparent border-b whitespace-nowrap shadow-transparent">
                                         <p class="mb-0 font-semibold leading-tight text-size-xs">{{optional($emploi->equipe)->categorie}}</p>
@@ -128,6 +136,7 @@
                                         <p class="mb-0 font-semibold leading-tight text-size-xs">
                                             {{ $emploi->created_at->format('d/m/y') }}
                                         </p>
+<<<<<<< HEAD
                                                         </td>
                                     @if(Auth::user()->isAdmin())
                                         <td  class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
@@ -136,6 +145,15 @@
                                                 {{-- <a href="{{route('editemploi', $emploi->id)}}">
                                                     <i class="fas fa-user-edit" aria-hidden="true"></i>
                                                 </a> --}}
+=======
+                                    </td>
+                                    @if(Auth::user()->isAdmin())
+                                        <td  class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                            <p class="mb-0 font-semibold leading-tight text-base">
+                                                <a href="{{route('editemploi', $emploi->id)}}">
+                                                    <i class="fas fa-user-edit" aria-hidden="true"></i>
+                                                </a>
+>>>>>>> origin/main
                                                 <a href="#" onclick="confirm('Are you sure you want to remove the emploi') || event.stopImmediatePropagation()"
                                                    wire:click.after="delete({{$emploi->id}})">
                                                     <i class="cursor-pointer fas fa-trash" aria-hidden="true"></i>

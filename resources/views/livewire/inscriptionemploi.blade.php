@@ -43,7 +43,11 @@
             <p class="text-size-sm text-red-500">{{$message}}</p>
             @enderror
         </div>
+<<<<<<< HEAD
         {{-- <div>
+=======
+        <div>
+>>>>>>> origin/main
             <label class="block text-sm font-bold text-gray-700" for="legende">
                 Legende
             </label>
@@ -57,6 +61,7 @@
                     <option value="{{$legende->id }}">{{$legende->libelle}}</option>
                 @endforeach
             </select>
+<<<<<<< HEAD
         </div> --}}
         <div >
             <label class="block text-sm font-bold text-gray-700" for="">DESCRIPTION</label>
@@ -83,8 +88,27 @@
 
                     }
               @endforeach
+=======
+        </div>
+>>>>>>> origin/main
 
+        <div>
+            <label class="block text-sm font-bold text-gray-700" for="user_id">
+                User
+            </label>
+            <select id="user_id" name="user_id" wire:model.lazy="user_id" type="text" class="form-select
+                form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700
+                bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition
+                ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    aria-label=".form-select-sm example">
+                <option selected>Selectionner un name</option>
+                @foreach ($users as $user)
+                    <option value="{{$user->id }}">{{$user->name}}</option>
+                @endforeach
+            </select>
+        </div>
 
+<<<<<<< HEAD
             </select>
 
 
@@ -139,6 +163,8 @@
             </select>
         </div>
 
+=======
+>>>>>>> origin/main
         <div>
             <label class="block text-sm font-bold text-gray-700" for="equipe_id">
                 Equipe

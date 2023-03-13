@@ -88,8 +88,29 @@ class Pointages extends Component
                 }
 
         $this->reset('state');
+<<<<<<< HEAD
         $this->pointages = pointage::where('user_id',Auth::user()->id)->get();
         // $this->pointages = pointage::all();
+=======
+        $this->pointages = pointage::all();
+    }
+
+
+    public function edit($id)
+    {
+        $this->updateMode = true;
+
+        $pointage = pointage::find($id);
+
+        $this->state = [
+
+            'signature' => $pointage->signature,
+            'heure_A' => $pointage->heure_A,
+            'heure_D' => $pointage->heure_D,
+
+
+        ];
+>>>>>>> origin/main
     }
 
 

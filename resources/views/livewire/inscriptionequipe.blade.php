@@ -59,7 +59,11 @@
                                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             aria-label=".form-select-sm example">
                                         <option selected>
+<<<<<<< HEAD
                                             Selectionner une equipe
+=======
+                                            Selectionner un name
+>>>>>>> origin/main
                                         </option>
                                         @foreach ($users as $user)
                                             <option value="{{$user->id}}">{{$user->name}}</option>
