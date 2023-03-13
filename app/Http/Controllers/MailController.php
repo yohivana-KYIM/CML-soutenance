@@ -43,7 +43,7 @@ class MailController extends Controller
      //'password' =>$request->password,
 //]) ;
         Mail::to('ivanayoh98@gmail.com')->send(new DemoMail($mailData));
-        Mail::to('yohivana237@gmail.com')->send(new DemoMail($mailData));
+        // Mail::to('yohivana237@gmail.com')->send(new DemoMail($mailData));
 
         dd("Email is sent successfully.");
     }

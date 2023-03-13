@@ -30,13 +30,13 @@
                         </div>
       <h2>votre email:{{auth()->user()->email}}</h2>  
                                 <div>Mail valide avec succès</div>
-<<<<<<< HEAD
+
                                 <h4 class="mt-4 mb-0 leading-normal text-size-sm"> <a
                                     href="{{ route('login') }}" class="font-bold text-slate-700">lien deconnexion</a>
                             </h4>
-=======
+
                                       <h4><a href=" URL('login')" style="color:blue">lien de connexion</a></h4>
->>>>>>> origin/main
+
        
       <p>Thank you</p>
   </body>
