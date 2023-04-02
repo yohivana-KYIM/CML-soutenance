@@ -92,11 +92,21 @@
                                     <p class="mb-0 font-semibold leading-tight text-size-xs">{{$value->created_at->format ('d/m/y')}}</p>
                                 </td>
                                 <td  class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-        <p class="mb-0 font-semibold leading-tight text-base">
- <a href="{{route('editlegende',$value->id)}}"onclick="confirm('Are you sure you want to updated the legende') || event.stopImmediatePropagation()"><i class="fas fa-user-edit" aria-hidden="true"></i></a>
+   
 
-         <a href="#"onclick="confirm('Are you sure you want to remove the legende') || event.stopImmediatePropagation()" wire:click.prevent="delete({{$value->id}})"><i class="cursor-pointer fas fa-trash" aria-hidden="true"></i></a>
-                                    </p>
+
+<p class="mb-0 font-semibold leading-tight text-base">
+    <a href="{{route('editlegende',$value->id)}}"onclick="confirm('Are you sure you want to updated the legende') || event.stopImmediatePropagation()"> <button type="submit"
+        class="inline-block w-full px-6 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-gradient-cyan hover:scale-102 hover:shadow-soft-xs active:opacity-85">Modifier
+        </button></a>
+   
+    <a href="#" onclick="confirm('Are you sure you want to remove the legende') || event.stopImmediatePropagation()"
+       wire:click.after="delete({{$value->id}})">
+       <button type="submit"
+       class="inline-block w-full px-4 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-130 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-gradient-cyan hover:scale-100 hover:shadow-soft-xs active:opacity-65">Supprimer</button>
+        {{-- <i class="cursor-pointer fas fa-trash" aria-hidden="true"></i> --}}
+    </a>
+</p>
                                 </td>
                             </tr>
 

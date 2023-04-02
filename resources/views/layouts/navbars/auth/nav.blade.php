@@ -16,23 +16,22 @@
       <h6 class="mb-0 font-bold capitalize">{{ str_replace('-', ' ', Request::path()) }}</h6>
     </nav>
 
-    <div
-      class="flex items-center mt-2 grow sm:mt-0 {{ (Request::is('rtl') ? '' : 'sm:mr-6') }}md:mr-0 lg:flex lg:basis-auto">
+    {{-- <div
+      class="flex items-center mt-2 grow sm:mt-0 {{ (Request::is('rtl') ? '' : 'sm:mr-6') }}md:mr-0 lg:flex lg:basis-auto"> --}}
 
-      <div class="flex items-center md:ml-auto md:pr-4">
+      {{-- <div class="flex items-center md:ml-auto md:pr-4">
         <!-- pro btn  -->
-        <a class="inline-block w-full px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg select-none shadow-soft-md bg-150 bg-x-25 leading-pro text-size-xs bg-gradient-fuchsia hover:shadow-soft-2xl hover:scale-102"
-          href="https://www.creative-tim.com/product/soft-ui-dashboard-tall" target="_blank">Free download</a>
-        <div class="ml-2 relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+       
+        {{-- <div class="ml-2 relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
           <span
             class="text-size-sm ease-soft leading-5.6 absolute z-50 {{ (Request::is('rtl') ? '-mr-px border-l-0 rounded-tl-none rounded-bl-none' : '-ml-px border-r-0 rounded-tr-none rounded-br-none') }} flex h-full items-center whitespace-nowrap rounded-lg border border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
             <i class="fas fa-search"></i>
-          </span>
-          <input type="text"
+          </span> --}}
+          {{-- <input type="text"
             class="{{ (Request::is('rtl') ? 'pr-8.75 -mr-px pl-0' : 'pl-8.75 -ml-px pr-3') }} text-size-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-            placeholder="Type here..." />
-        </div>
-      </div>
+            placeholder="Type here..." /> --}}
+        {{-- </div> --}}
+      {{-- </div> --}}
       <ul
         class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full {{ (Request::is('rtl') ? 'pr-10 ml-0 mr-auto' : '') }}">
 
@@ -83,7 +82,7 @@
               class="text-size-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer">
               @endif
               <!-- add show class on dropdown open js -->
-              <li class="relative mb-2">
+              {{-- <li class="relative mb-2">
                 <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors"
                   href="javascript:;">
                   <div class="flex py-1">
@@ -102,7 +101,7 @@
                     </div>
                   </div>
                 </a>
-              </li>
+              </li> --}}
 
               <li class="relative mb-2">
                 <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
@@ -114,7 +113,7 @@
                     </div>
                     <div class="flex flex-col justify-center">
                       <h6 class="mb-1 font-normal leading-normal text-size-sm"><span class="font-semibold">New
-                          album</span> by Travis Scott</h6>
+                          album</span> by IVANA_YOH/h6>
                       <p
                         class="mb-0 {{ (Request::is('rtl') ? 'ml-auto' : '') }} leading-tight text-size-xs text-slate-400">
                         <i class="{{ (Request::is('rtl') ? 'ml-1' : 'mr-1') }} fa fa-clock"></i>

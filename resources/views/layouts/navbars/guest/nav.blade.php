@@ -6,10 +6,10 @@
 
         <div class="container flex items-center justify-between py-0 flex-wrap-inherit">
 
-            <a class="py-2.375 text-size-sm mr-4 ml-4 whitespace-nowrap font-bold lg:ml-0 
-            
+            <a class="py-2.375 text-size-sm mr-4 ml-4 whitespace-nowrap font-bold lg:ml-0
+
             {{ Request::is('static-sign-up') || Request::is('register') ? 'text-white' : 'text-slate-700' }}"
-                href="{{ url('dashboard') }}"> Soft UI Dashboard </a>
+                href="{{ url('dashboard') }}"> KYIM_DEV</a>
             <button navbar-trigger
                 class="px-3 py-1 ml-2 leading-none transition-all bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-size-lg ease-soft-in-out lg:hidden"
                 type="button" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,9 +33,9 @@
                 class="items-center flex-grow overflow-hidden transition-all duration-500 ease-soft lg-max:max-h-0 basis-full lg:flex lg:basis-auto">
                 <ul class="flex flex-col pl-0 mx-auto mb-0 list-none lg:flex-row xl:ml-auto">
 
-                    @if (auth()->user()) 
+                    @if (auth()->user())
                     <li>
-                        <a class="flex items-center px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-size-sm lg:px-2 
+                        <a class="flex items-center px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-size-sm lg:px-2
                             {{ Request::is('static-sign-up') || Request::is('register') ? 'text-white' : 'text-slate-700' }}"
                             aria-current="page" href="{{ url('dashboard') }}">
                             <i class="mr-1 fa fa-chart-pie opacity-60"></i>
@@ -52,14 +52,14 @@
                     </li>
                     @endif
 
-                    <li>
+                    {{-- <li>
                         <a class="block px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-size-sm lg:px-2
                         {{ Request::is('static-sign-up') || Request::is('register') ? 'text-white' : 'text-slate-700' }}"
                             href="{{ auth()->user() ? url('static-sign-up') : url('register') }}">
                             <i class="mr-1 fas fa-user-circle opacity-60"></i>
                             Sign Up
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a class="block px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-size-sm lg:px-2
                         {{ Request::is('static-sign-up') || Request::is('register') ? 'text-white' : 'text-slate-700' }}"
@@ -79,14 +79,14 @@
                   >Online Builder</a
                 >
               </li> -->
-                <ul class="hidden pl-0 mb-0 list-none lg:block lg:flex-row">
+                {{-- <ul class="hidden pl-0 mb-0 list-none lg:block lg:flex-row">
                     <li>
                         <a href="https://www.creative-tim.com/product/soft-ui-dashboard-tall" target="_blank"
                             class="leading-pro hover:scale-102 hover:shadow-soft-xs active:opacity-85 ease-soft-in text-size-xs tracking-tight-soft shadow-soft-md bg-150 bg-x-25 rounded-3.5xl mb-0 mr-1 inline-block cursor-pointer border-0 bg-transparent px-8 py-2 text-center align-middle font-bold uppercase transition-all
                             {{ Request::is('static-sign-up') || Request::is('register') ? 'text-slate-800 bg-gradient-gray' : 'text-white bg-gradient-dark-gray' }}">
                             Free download</a>
                     </li>
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </nav>

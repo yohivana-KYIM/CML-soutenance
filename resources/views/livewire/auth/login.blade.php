@@ -13,8 +13,8 @@
                                         Welcome back!</h3>
                                     <p class="mb-0">Create a new acount<br></p>
                                     <p class="mb-0">OR Sign in with these credentials:</p>
-                                    <p class="mb-0">Email: <b>admin@softui.com</b></p>
-                                    <p class="mb-0">Password: <b>secret</b></p>
+                                    <p class="mb-0">Email: </p>
+                                    <p class="mb-0">Password: </p>
                                 </div>
 
                                 <div class="flex-auto p-6">
@@ -28,7 +28,7 @@
                                             <span aria-hidden="true" class="text-center cursor-pointer">&#10005;</span>
                                         </button>
                                     </div>
-    
+
                                     @endif
 
                                     <form wire:submit.prevent="login">
@@ -88,8 +88,12 @@
                         <div class="w-full max-w-full px-3 lg:flex-0 shrink-0 md:w-6/12">
                             <div
                                 class="absolute top-0 hidden w-3/5 h-full -mr-32 overflow-hidden -skew-x-10 -right-40 rounded-bl-xl md:block">
-                                <div class="absolute inset-x-0 top-0 z-0 h-full -ml-16 bg-cover skew-x-10"
+                               {{-- <div class="absolute inset-x-0 top-0 z-0 h-full -ml-16 bg-cover skew-x-10"
                                     style="background-image: url('../assets/img/curved-images/curved6.jpg')"></div>
+                            </div>. --}}
+
+ <div class="absolute inset-x-0 top-0 z-0 h-full -ml-16 bg-cover skew-x-10"
+                                    style="background-image: url('{{asset('assets/img/curved-images/curved6.jpg')}}"></div>
                             </div>
                         </div>
                     </div>

@@ -34,8 +34,8 @@
           <script>
             document.write(new Date().getFullYear());
           </script>
-          Soft by <a class="font-semibold text-slate-700" href="https://www.creative-tim.com" target="_blank">Creative Tim</a> & <a
-            class="font-semibold text-slate-700" href="https://updivision.com" target="_blank">UPDIVISION</a>.
+          KYIM_Dev by <a class="font-semibold text-slate-700" href="https://www.creative-tim.com" target="_blank">        Ivana YOH</a>
+   .
         </p>
       </div>
     </div>

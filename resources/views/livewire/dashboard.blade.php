@@ -22,15 +22,10 @@
                         <div class="flex flex-row -mx-3">
                             <div class="flex-none w-2/3 max-w-full px-3">
                                 <div>
-                                    <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">
-                                        New personnels
-                                    </p>
-                                    <h5 class="mb-0 font-bold">
-                                        +
-                                        <span class="leading-normal text-red-600 text-size-sm font-weight-bolder">29</span>
-                                    </h5>
+                                    <img class="relative z-20 pt-6"
+                                    src="{{ asset('assets/img/illustrations/patient.jpg') }}" alt="rocket" width="600"/>
                                 </div>
-                            </div>
+                            {{-- </div>
                             <div class="px-3 text-right basis-1/3">
                                 <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-fuchsia">
                                     <i class="ni ni-paper-diploma text-size-lg relative top-3.5 text-white"></i>
@@ -39,10 +34,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- card4 -->
-            <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
+            {{-- <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
                 <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
                     <div class="flex-auto p-4">
                         <div class="flex flex-row -mx-3">
@@ -66,7 +61,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
 {{--                                    <i class="fa fa-clock text-size-lg text-white"></i>--}}
-                                </div>
+                                {{-- </div>
                             </div>
                         </div>
                     </div>
@@ -92,29 +87,29 @@
                                             class="fas fa-arrow-right ease-bounce text-size-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
+                            </div> --}}
+                            {{-- <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
                                 <div class="h-full bg-gradient-fuchsia rounded-xl">
-{{--                                    <img src="{{ asset('assets/img/shapes/waves-white.svg') }}"--}}
-{{--                                         class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />--}}
+                                   {{-- <img src="{{ asset('assets/img/shapes/waves-white.svg') }}"--}}
+                                       {{-- class="absolute top-0 hidden w-1/2 h-full lg:block" alt="waves" />--
                                     <div class="relative flex items-center justify-center h-full">
                                         <img class="relative z-20 pt-6"
-                                             src="{{ asset('assets/img/illustrations/rocket-white.png') }}" alt="rocket" />
+                                             src="{{ asset('assets/img/illustrations/im.png') }}" alt="rocket" width="40"/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
+                </div> --}}
+            </div> --
+            {{-- <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
                 <div
                     class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-4">
                     <div class="relative h-full overflow-hidden bg-cover rounded-xl"
                          style="background-image: url('../assets/img/ivancik.jpg')">
                         <span
-                            class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-dark-gray opacity-80"></span>
-                        <div class="relative z-10 flex flex-col flex-auto h-full p-4">
+                            class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-dark-gray opacity-80"></span> --}}
+                        {{-- <div class="relative z-10 flex flex-col flex-auto h-full p-4">
                             <h5 class="pt-2 mb-6 font-bold text-white">
                                 {{ trans('Teams') }}
                             </h5>
@@ -127,9 +122,10 @@
                                 <i
                                     class="fas fa-arrow-right ease-bounce text-size-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
                             </a>
-                        </div>
+                        {{-- </div> --}}
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

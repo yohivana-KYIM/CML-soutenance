@@ -10,11 +10,11 @@
         <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden"
            sidenav-close></i>
         <a class="block px-8 py-6 m-0 text-size-sm whitespace-nowrap text-slate-700" href="{{ url('/') }}" target="_blank">
-            <img src="../assets/img/logo-ct.png"
-                 class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
+            <img src="{{asset('assets/img/im.png')}} "
+                 class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo"  width="30"/>
             <span
-                class="{{ (Request::is('rtl') ? 'mr-1' : 'ml-1') }} font-semibold transition-all duration-200 ease-nav-brand">Soft
-          UI Dashboard</span>
+                class="{{ (Request::is('rtl') ? 'mr-1' : 'ml-1') }} font-semibold transition-all duration-200 ease-nav-brand">CENTRE Medical La Life
+         </span>
         </a>
     </div>
 
@@ -97,7 +97,7 @@
               Profile</span>
                 </a>
             </li>
-
+            @if(Auth::user()->isAdmin())
             <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
               {{ (Request::is('user-management') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '') }}"
@@ -116,7 +116,7 @@
               Management</span>
                 </a>
             </li>
-
+@endif
             <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
                 {{ (Request::is('legende-management') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '') }}"
@@ -195,7 +195,7 @@
                 </a>
             </li>
 
-            <li class="mt-0.5 w-full">
+            {{-- <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
                 {{ (Request::is('semaines') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '') }}"
                    href="{{ url('semaines') }}">
@@ -209,7 +209,7 @@
                         class="{{ (Request::is('rtl') ? 'mr-1' : 'ml-1') }} duration-300 opacity-100 pointer-events-none ease-soft">semaines
                     </span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
@@ -226,7 +226,7 @@
                 </a>
             </li>
 
-            <li class="w-full mt-4">
+            {{-- <li class="w-full mt-4">
                 <h6
                     class="{{ (Request::is('rtl') ? 'pr-6 mr-2' : 'pl-6 ml-2') }} font-bold leading-tight uppercase text-size-xs opacity-60">
                     Page examples
@@ -367,7 +367,7 @@
                     <span
                         class="{{ (Request::is('rtl') ? 'mr-1' : 'ml-1') }} duration-300 opacity-100 pointer-events-none ease-soft">RTL</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="w-full mt-4">
                 <h6
@@ -375,7 +375,6 @@
                     Account pages
                 </h6>
             </li>
-
             <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors
                 {{ (Request::is('role-management') ? 'shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700' : '') }}"
@@ -406,6 +405,7 @@
                         </svg>
 
                     </div>
+
                     <span
                         class="{{ (Request::is('rtl') ? 'mr-1' : 'ml-1') }} duration-300 opacity-100 pointer-events-none ease-soft">
                         Roles
