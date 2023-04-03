@@ -82,6 +82,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
     Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 });
+
 Route::get('bilan', [PointageBilanController::class,'render']);
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

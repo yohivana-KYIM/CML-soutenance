@@ -53,9 +53,8 @@ return [
     | Examples: "/assets", "myurl.com/app".
     |
     */
-    'asset_url'  => 'http://localhost/CMLsoutenance',
-    // 'asset_url' => env('APP_URL', 'http://localhost'),
-    // 'asset_url' => null,
+//    'asset_url' => env('APP_URL', 'http://localhost'),
+    'asset_url' => null,
 
     /*
     |--------------------------------------------------------------------------

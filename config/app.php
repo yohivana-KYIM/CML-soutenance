@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
-
     'hour' => env('SCHEDULED_HOUR', ''),
     'min' => env('SCHEDULED_MIN', ''),
 
@@ -57,10 +56,9 @@ return [
     |
     */
 
-    //'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost'),
 
-
-    'asset_url' => env('ASSET_URL','http://localhost/CMLsoutenance/public'),
+    'asset_url' => env('ASSET_URL',''),
 
     /*
     |--------------------------------------------------------------------------
@@ -74,7 +72,7 @@ return [
     */
 
     // 'timezone' => 'UTC',
-   'timezone'=>'Africa/Douala', 
+   'timezone'=>'Africa/Douala',
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
