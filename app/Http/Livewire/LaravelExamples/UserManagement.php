@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\LaravelExamples;
 
-use App\Models\pointage;
+use App\Models\Pointage;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -30,14 +30,14 @@ class UserManagement extends Component
     public function render(): View
     {
         // $this->users = User::all();
-      //  $this->pointages = pointage::all();
+      //  $this->pointages = Pointage::all();
         $this->roles = Role::all();
 
         $users = User::where('name',  'like',
         '%' .$this->search .'%')->orderBy('id' ,'ASC')
         ->orWhere('fonction', 'like',
         '%' .$this->search .'%')->paginate(5);
-        $pointages = pointage::where('heure_D',  'like',
+        $pointages = Pointage::where('heure_D',  'like',
         '%' .$this->search .'%')->orderBy('id' ,'ASC')
         ->orWhere('heure_A', 'like',
         '%' .$this->search .'%')->paginate(5);

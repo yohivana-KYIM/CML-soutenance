@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('signature');
             $table->string('heure_A')->nullable();
             $table->string('heure_D')->nullable();
-            // $table->string('total_hours')->nullable();
+            $table->string('total_hours')->nullable();
             $table->timestamps();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->softDeletes();

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\User;
-use App\Models\pointage;
+use App\Models\Pointage;
 use Illuminate\Http\Request;
 
 use function PHPSTORM_META\type;
@@ -20,7 +20,7 @@ class PointageBilanController extends Controller
         // ->groupBy('year', 'month','bilan')
         // ->get();
 
-        $pointages=DB::table('pointages') ->select(
+        $pointages = DB::table('pointages') ->select(
 
 
             DB::raw('COUNT(*) as count'),

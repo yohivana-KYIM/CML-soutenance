@@ -3,26 +3,27 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\pointage;
+use App\Models\Pointage;
+
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends Factory<pointage>
  */
-class pointageFactory extends Factory
+class PointageFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
 
-              'signature'=>1,
-            'heure_A' => $this->faker->time($format='H:i:s', $max='now'),
-            'heure_D' =>$this->faker->time($format='H:i:s', $max='now'),
-'user_id' =>1,
-'created_at'=>$this->faker->date($format = 'Y-m-d', $max = 'now'),
+            'signature' => 1,
+            'heure_A' => $this->faker->time(),
+            'heure_D' => $this->faker->time(),
+            'user_id' => 1,
+            'created_at'=>$this->faker->date(),
         ];
     }
 }

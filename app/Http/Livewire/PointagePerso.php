@@ -3,14 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\pointage;
+use App\Models\Pointage;
 use DateTime;
 
 class PointagePerso extends Component
 {
 
 
-    public pointage $pointage;
+    public Pointage $pointage;
 
 
 

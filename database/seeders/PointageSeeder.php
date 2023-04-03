@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\pointage;
+use App\Models\Pointage;
 use Illuminate\Database\Seeder;
 
 class PointageSeeder extends Seeder
@@ -14,6 +14,6 @@ class PointageSeeder extends Seeder
      */
     public function run(): void
     {
-        pointage::factory(2)->create();
+        Pointage::factory(2)->create();
     }
 }

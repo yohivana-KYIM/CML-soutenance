@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 use App\Models\User;
-use App\Models\pointage;
+use App\Models\Pointage;
 use App\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -22,9 +22,9 @@ class PaginateUser extends Component
     public function render()
     {
 
-       $this->users=User::all();
-     //  $this->pointages=pointage::all();
-        $this->roles=Role::all();
+       $this->users = User::all();
+     //  $this->pointages = Pointage::all();
+        $this->roles = Role::all();
 
 
         return view('livewire.pointages');
@@ -44,14 +44,14 @@ class PaginateUser extends Component
        {
 
 
-       $pointages= pointage::where('name',  'like',
+       $pointages= Pointage::where('name',  'like',
         '%' .$this->search .'%')->orderBy('id' ,'ASC')
         ->orWhere('heure_A', 'like',
         '%' .$this->search .'%')->paginate(1);
 
 
   }else{
-           $pointages =  pointage::paginate(1);
+           $pointages =  Pointage::paginate(1);
      }
 
 
