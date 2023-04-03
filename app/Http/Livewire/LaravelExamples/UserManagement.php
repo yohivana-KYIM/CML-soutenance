@@ -6,10 +6,10 @@ use App\Models\Pointage;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
-// use Livewire\WithPagination;
 use Livewire\WithPagination;
 
 class UserManagement extends Component
@@ -29,8 +29,8 @@ class UserManagement extends Component
      */
     public function render(): View
     {
-        // $this->users = User::all();
-        //  $this->pointages = Pointage::all();
+        //$this->users = User::all();
+        //$this->pointages = Pointage::all();
         $this->roles = Role::all();
 
         $users = User::where('name',  'like',
@@ -42,7 +42,7 @@ class UserManagement extends Component
             ->orWhere('heure_A', 'like',
                 '%' .$this->search .'%')->paginate(5);
         // return view('livewire.laravel-examples.user-management');
-        return view('livewire.laravel-examples.user-management',compact('users','pointages'));
+        return view('livewire.laravel-examples.user-management', compact('users','pointages'));
     }
 
     /**
@@ -65,13 +65,16 @@ class UserManagement extends Component
 
     /**
      * @param $id
-     * @return void
+     * @return JsonResponse|RedirectResponse
      */
-    public function delete($id): void
+    public function delete($id): JsonResponse|RedirectResponse
     {
-        if ($id) {
-            User::where('id', $id)->delete();
-            // $this->users = User::all();
+        if ($id && User::query()->where('id', $id)->delete()) {
+            return redirect(route('user-management'))->with('status', 'user successfully created.');
         }
+
+        return response()->json([
+            'error' => 'Error when deleting'
+        ]);
     }
 }

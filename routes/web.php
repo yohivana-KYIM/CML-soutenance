@@ -1,61 +1,41 @@
-
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Auth\Register;
-
-use App\Http\Livewire\Dashboard;
-use App\Http\Livewire\EquipeManagement;
-use App\Http\Livewire\LegendeManagement;
-use App\Http\Livewire\RoleManagement;
-
-use App\Http\Livewire\EmploiManagement;
-use App\Http\Livewire\LaravelExamples\UserManagement;
-use App\Http\Livewire\EditUser;
-use App\Http\Livewire\Pointages;
-use App\Http\Livewire\FormulaireRole ;
-use App\Http\Livewire\Inscriptionemploi;
-use App\Http\Livewire\Inscriptionrole;
-use App\Http\Livewire\Inscriptionequipe;
-use App\Http\Livewire\Inscriptionlegende;
-//use App\Http\Livewire\PaginateUser;
-use App\Http\Livewire\Editequipe;
-use App\Http\Livewire\Editrole ;
-use App\Http\Livewire\Editemploi;
-use App\Http\Livewire\Editlegende;
-use App\Http\Livewire\Inscription;
+use App\Http\Controllers\EmploiController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PointageBilanController;
-//use App\Http\Controllers\LegendeController;
 use App\Http\Controllers\SemaineController;
-//use App\Http\Controllers\EquipeController;
-use App\Http\Controllers\EmploiController;
 use App\Http\Livewire\Auth\ForgotPassword;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Billing;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Editemploi;
+use App\Http\Livewire\Editequipe;
+use App\Http\Livewire\Editlegende;
+use App\Http\Livewire\Editrole ;
+use App\Http\Livewire\EditUser;
+use App\Http\Livewire\Inscription;
+use App\Http\Livewire\Inscriptionemploi;
+use App\Http\Livewire\Inscriptionequipe;
+use App\Http\Livewire\Inscriptionlegende;
+use App\Http\Livewire\Inscriptionrole;
+use App\Http\Livewire\EmploiManagement;
+use App\Http\Livewire\EquipeManagement;
+use App\Http\Livewire\FormulaireRole ;
+use App\Http\Livewire\LaravelExamples\UserManagement;
+use App\Http\Livewire\LaravelExamples\UserProfile;
+use App\Http\Livewire\LegendeManagement;
+use App\Http\Livewire\Pointages;
 use App\Http\Livewire\Profile;
-use App\Http\Livewire\Tables;
-
+use App\Http\Livewire\RoleManagement;
+use App\Http\Livewire\Rtl;
 use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
-use App\Http\Livewire\Rtl;
-
-use App\Http\Livewire\LaravelExamples\UserProfile;
-
+use App\Http\Livewire\Tables;
 use App\Http\Livewire\VirtualReality;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return redirect('/dashboard');
@@ -117,7 +97,7 @@ Route::middleware('auth')->group(function () {
     Route::get('emploi-management/{id}/edit',Editemploi::class)->name('editemploi');
     Route::get('equipe-management/{id}/edit',Editequipe::class)->name('editequipe');
     Route::get('/pointages',Pointages::class)->name('pointages');
-//Route::get('/legendes',Legendes::class)->name('legendes');
+    //Route::get('/legendes',Legendes::class)->name('legendes');
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/tables', Tables::class)->name('tables');

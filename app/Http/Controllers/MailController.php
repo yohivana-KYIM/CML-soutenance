@@ -2,49 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-//use Mail;
+use Exception;
+use Illuminate\Http\JsonResponse;
 use App\Mail\DemoMail;
-use App\Models\User;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Hash;
 
 class MailController extends Controller
 {
-
     public $name = '';
     public $email = '';
-    public $password = '';
-          /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public function index()
+
+    public function index(): JsonResponse
     {
-
         $mailData = [
-
             'email' =>$this->email,
-          'name'=>$this->name,
-           'password' =>$this->password,
+            'name' => $this->name,
+        ];
 
+        $message = 'Success';
+        try {
+            if (!Mail::to('ivanayoh98@gmail.com')->send(new DemoMail($mailData))) {
+                $message = 'Error';
+            }
+        } catch (Exception $exception) {
+            return response()->json([
+                'error' => $exception->getTrace()
+            ]);
+        }
 
-       ];
-      // public function index( Request $request){
-//$pwd=
-//$request->input("password");
-
-//$mailData=([
-   // "mdp"=>Hash::make("password"),
-   // 'email' =>$this->email,
-   //     'name' =>$this->name,
-     //'password' =>$request->password,
-//]) ;
-        Mail::to('ivanayoh98@gmail.com')->send(new DemoMail($mailData));
-        // Mail::to('yohivana237@gmail.com')->send(new DemoMail($mailData));
-
-        dd("Email is sent successfully.");
+        return response()->json([
+            'message' => $message
+        ]);
     }
 }
